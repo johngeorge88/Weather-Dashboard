@@ -4,7 +4,7 @@ var currentDayCard = document.getElementById("current-day");
 var forecastData = document.getElementById("Forecast-data");
 var searchHistory = document.getElementById("search-history");
 
-
+// Search button function
 var searchHandler = function (cityName) {
     cityName.preventDefault();
     currentDayCard.innerHTML = "";
@@ -20,6 +20,7 @@ var searchHandler = function (cityName) {
     }
 };
 
+// Adding city search to history 
 var cityHistory = function (city) {
     var historyEl = document.createElement('Button');
     historyEl.setAttribute("class", "city-item btn list-group-item list-group-item-action");
@@ -30,11 +31,13 @@ var cityHistory = function (city) {
     historyEl.onclick = clickCity;
 }
 
-var clickCity = function() {
+// function to call back clickable cities from the history
+var clickCity = function () {
     var cityName = this.id;
     getWeatherInfo(cityName);
 }
 
+// fetching the api key to get the data
 var getWeatherInfo = function (cityName) {
     var currentURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=42ea263982f3e6fdce056c448e41a364" + "&units=imperial";
     // 5 Day forecast
@@ -57,9 +60,8 @@ var getWeatherInfo = function (cityName) {
                             })
                         });
                 });
-                } else {
-                    alert("Error: " + response.statusText);
-                    
+            } else {
+                alert("Error: " + response.statusText);
             }
         });
     fetch(forecastURL).then(function (response) {
@@ -70,11 +72,11 @@ var getWeatherInfo = function (cityName) {
             });
         }
     })
-
 };
 
+// Function to display current day weather
 var displayTodayWeather = function (data, UVdata) {
-    currentDayCard.innerHTML= "";
+    currentDayCard.innerHTML = "";
     currentDayCard.setAttribute("class", "card");
     // Current Day
     var todayCad = document.createElement("div");
@@ -102,9 +104,10 @@ var displayTodayWeather = function (data, UVdata) {
     todayUVindex.appendChild(UVindex);
 }
 
+// Function to display 5 day forecasts
 var displayForecastWeather = function (forecast) {
     var forecastWeather = document.getElementById("Forecast-data");
-    forecastWeather.innerHTML="";
+    forecastWeather.innerHTML = "";
 
     var forecastEl = document.createElement("div");
     forecastData.appendChild(forecastEl);
@@ -112,7 +115,6 @@ var displayForecastWeather = function (forecast) {
     var forecastTitle = document.createElement("h2")
     forecastTitle.textContent = "5-Day Forecast:";
     forecastEl.appendChild(forecastTitle);
-
 
     // Create 5 cards
     for (var i = 0; i < forecast.list.length; i += 8) {
@@ -148,7 +150,6 @@ var displayForecastWeather = function (forecast) {
         cardBody.appendChild(cardHumidity);
         // }
     }
-
 }
 
 searchBtn.addEventListener("click", searchHandler);

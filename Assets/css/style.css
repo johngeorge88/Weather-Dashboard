@@ -1,3 +1,6 @@
+body {
+    background-color: lightyellow;
+}
 .Main-Text {
     padding: 10px;
 }
@@ -7,6 +10,7 @@
     margin-bottom: 10px;
     border-radius: 10px;
 }
+
 header {
     color: white;
     background-color: rgb(32, 31, 31);
