@@ -19,14 +19,16 @@
     </header>
     <br>
     <!-- Page Layout -->
-    <div class="container">
+    <div class="Main-Text">
         <div class="row">
             <div class="col-3">
-                <div class="form-inline">
+                <div class="form">
                     <h2>Search for a City:</h2>
-                    <input class="form-control form-inline" name="find-city" type="search" id="search-input"
-                        placeholder="Enter City Name">
-                    <button class="btn btn-primary fa fa-search" id="search-btn"></button>
+                    <div class="form-inline">
+                        <input class="form-control" name="find-city" type="search" id="search-input"
+                            placeholder="Enter City Name">
+                        <button class="btn btn-primary fa fa-search" id="search-btn"></button>
+                    </div>
                 </div>
                 <div id="search-history" class="list-group">
 
@@ -35,28 +37,9 @@
 
             <!-- Display area -->
             <div class="col-9">
-                <div class="card" id="current-day">
-
+                <div id="current-day">
                 </div>
                 <div id="Forecast-data">
-                    <!-- <div class="card-deck card-padding d-inline-block text-white bg-primary mr-3 mb-3"
-                        style="max-width: 10rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                        </div>
-                    </div> -->
-                    
-                    <!-- <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Header</div>
-                            <div class="card-body">
-                                <p class="card-title"></p>
-                                <p class="card-text"></p>
-                            </div>
-                        </div> -->
-
                 </div>
             </div>
 
